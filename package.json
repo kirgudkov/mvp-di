@@ -1,0 +1,25 @@
+{
+  "name": "dependency-injector",
+  "version": "0.0.1",
+  "description": "simple DI",
+  "main": "index.js",
+  "scripts": {
+    "test": "test-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KirillGudkov/dependency-injector.git"
+  },
+  "keywords": [
+    "DI"
+  ],
+  "author": "Kirill Gudkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KirillGudkov/dependency-injector/issues"
+  },
+  "homepage": "https://github.com/KirillGudkov/dependency-injector#readme",
+  "devDependencies": {
+    "typescript": "^3.2.2"
+  }
+}
