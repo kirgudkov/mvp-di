@@ -1,8 +1,8 @@
 export class DIBuilder {
 
-  static types: Map<string, Object>;
+  static types: Object;
 
-  static build(types: Map<string, Object>) {
+  static build(types: Object) {
     DIBuilder.types = types;
   }
 }
