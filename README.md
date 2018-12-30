@@ -1,6 +1,6 @@
 
 ## Installation
-add `"dependency-injector": "github:KirillGudkov/dependency-injector#master"`
+add `"presenter-injection": "github:KirillGudkov/presenter-injection#master"`
 your to package.json and run `npm install`
 ## Usage
 
@@ -28,8 +28,8 @@ class Home extends React.Component implements HomeView {
   @bind
   @injectedProperty
   showMessage(): void {
-    Alert.alert('Message', 'Hello')
-  };
+    Alert.alert('Message', 'Hello');
+  }
 
   render() {
     return (
@@ -52,7 +52,7 @@ export class HomePresenter extends Presenter<HomeView>{
 
   @bind
   handleOnPress() {
-    this.view.showMessage()
+    this.view.showMessage();
   }
 }
 ```
@@ -68,3 +68,7 @@ export interface HomeView {
 object and append it to `Home.tsx` object automatically.
 `@injectedProperty` decorator marks property as `Injectable` 
 and provides access it for `HomePresenter.ts`
+####Important
+The `Presenter <T>` extension provides the ability to communicate with View methods. 
+And this is a must. `Presenter <T>` provides a `view` property that gives 
+access to the View methods.

@@ -1,5 +1,5 @@
 {
-  "name": "dependency-injector",
+  "name": "presenter-injection",
   "version": "0.0.1",
   "description": "simple DI",
   "main": "index",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KirillGudkov/dependency-injector.git"
+    "url": "git+https://github.com/KirillGudkov/presenter-injection.git"
   },
   "keywords": [
     "DI"
@@ -17,9 +17,9 @@
   "author": "Kirill Gudkov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/KirillGudkov/dependency-injector/issues"
+    "url": "https://github.com/KirillGudkov/presenter-injection/issues"
   },
-  "homepage": "https://github.com/KirillGudkov/dependency-injector#readme",
+  "homepage": "https://github.com/KirillGudkov/presenter-injection#readme",
   "devDependencies": {
     "typescript": "^3.2.2"
   }
