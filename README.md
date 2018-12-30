@@ -69,7 +69,7 @@ object and append it to `Home.tsx` object automatically.
 `@injectedProperty` decorator marks property as `Injectable` 
 and provides access it for `HomePresenter.ts`
 
-####Important
+##Important
 
 The `Presenter <T>` extension provides the ability to communicate with View methods. 
 And this is a must. `Presenter <T>` provides a `view` property that gives 
