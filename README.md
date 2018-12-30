@@ -4,7 +4,7 @@ add `"dependency-injector": "github:KirillGudkov/dependency-injector#master"`
 your to package.json and run `npm install`
 ## Usage
 
-create file DITypes.js
+- create file DITypes.js
 ```
 import { HomePresenter } from "./HomePresenter";
 
@@ -14,10 +14,9 @@ export default {
 
 ```
 
-Then call `DIBuilder.build(DITypes)` in your root component
+- call `DIBuilder.build(DITypes)` in your root component
 
-Then use decorators `@inject`,  `@injectedProperty` and `@bind` to inject your dependencies
-like:
+- use `@inject` decorator to inject dependency. Something like:
 ```
 import {inject, bind, injectedProperty} from 'dependency-injector';
 
@@ -27,7 +26,7 @@ class Home extends React.Component implements HomeView {
   presenter!: HomePresenter;
 
   @bind
-  @injectedProperty // <- that provide access to this method from presenter
+  @injectedProperty
   showMessage(): void {
     Alert.alert('Message', 'Hello')
   };
@@ -35,7 +34,7 @@ class Home extends React.Component implements HomeView {
   render() {
     return (
       <View>
-        <Button title={'Say Hello'} onPress={this.presenter.handleOnClick} />
+        <Button title={'Say Hello'} onPress={this.presenter.handleOnPress} />
       </View>
     )
   }
@@ -44,21 +43,28 @@ class Home extends React.Component implements HomeView {
 ```
 
 
-and HomePresenter:
+HomePresenter.ts:
 
 ```
-import {bind} from "dependency-injector";
+import {bind, Presenter} from "dependency-injector";
 
-export class HomePresenter {
-  view: HomeView;
-
-  constructor(view: HomeView) {
-    this.view = view
-  }
+export class HomePresenter extends Presenter<HomeView>{
 
   @bind
-  handleOnClick() {
+  handleOnPress() {
     this.view.showMessage()
   }
 }
 ```
+
+HomeView.ts:
+```
+export interface HomeView {
+  showMessage: Function
+}
+```
+
+`@inject` decorator instantiate `HomePresente.ts` 
+object and append it to `Home.tsx` object automatically.
+`@injectedProperty` decorator marks property as `Injectable` 
+and provides access it for `HomePresenter.ts`

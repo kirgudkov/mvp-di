@@ -17,8 +17,7 @@ export function inject<T extends Object>(target: Object, propertyKey: string): a
 
 function injectableOnly(object: any, propertyKey: string): Object {
   const view: Object = {};
-  const ownPrototype: Object = Object.getPrototypeOf(object);
-  const properties = Object.getOwnPropertyNames(ownPrototype);
+  const properties = Object.getOwnPropertyNames(Object.getPrototypeOf(object));
 
   properties.map((property: string) => {
     if (property === propertyKey) {
@@ -32,4 +31,3 @@ function injectableOnly(object: any, propertyKey: string): Object {
   });
   return view;
 }
-
