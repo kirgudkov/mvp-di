@@ -1,9 +1,7 @@
 import {PresenterFactory} from "./PresenterFactory";
-import 'reflect-metadata';
 import {Injectable} from "./Injectable";
 
 export function inject<T extends Object>(target: Object, propertyKey: string): any {
-  let t = Reflect.getMetadata("design:type", target, propertyKey);
   return {
     configurable: true,
     get(this: T): T {
