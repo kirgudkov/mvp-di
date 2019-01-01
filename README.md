@@ -73,3 +73,13 @@ and provides access it for `HomePresenter.ts`
 The `Presenter <T>` extension provides the ability to communicate with View methods. 
 And this is a must. `Presenter <T>` provides a `view` property that gives 
 access to the View methods.
+
+If you need to pass some properties, such as `dispatch ()` for example, try to wrap it:
+
+```
+@bind
+@viewProperty
+public dispatch(action: Function): void {
+  this.props.dispatch(action);
+}
+```
