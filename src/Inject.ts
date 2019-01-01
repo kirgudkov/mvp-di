@@ -5,7 +5,7 @@ export function inject<T extends Object>(target: Object, propertyKey: string): a
   return {
     configurable: true,
     get(this: T): T {
-      const bound: T = new PresenterFactory().create(target.constructor.name, injectableOnly(this, propertyKey));
+      const bound: T = new PresenterFactory().create(target.constructor.name, viewPropsOnly(this, propertyKey));
       Object.defineProperty(this, propertyKey, {
         value: bound
       });
@@ -15,7 +15,7 @@ export function inject<T extends Object>(target: Object, propertyKey: string): a
 }
 
 
-function injectableOnly(object: any, propertyKey: string): Object {
+function viewPropsOnly(object: any, propertyKey: string): Object {
   const view: Object = {};
   const properties = Object.getOwnPropertyNames(Object.getPrototypeOf(object));
 
