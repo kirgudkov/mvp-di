@@ -4,3 +4,4 @@ example
 package-lock.json
 .nyc_output
 todo.txt
+/lib
