@@ -2,12 +2,14 @@
   "name": "presenter-injection",
   "version": "0.0.1",
   "description": "simple DI",
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "test": "test-run",
-    "build" : "tsc"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
