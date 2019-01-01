@@ -1,9 +1,10 @@
 {
   "name": "mvp-di",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "A simple DI package inspired by the MVP pattern. It can inject the presentation layer in React.js/React Native applications.",
   "files": [
-    "src"
+    "src",
+    "index.d.ts"
   ],
   "main": "index.js",
   "types": "index.d.ts",

@@ -19,7 +19,7 @@ export default {
 
 - use `@inject` decorator to inject dependency. Something like:
 ```
-import {inject, bind, viewProperty} from 'dependency-injector';
+import {inject, bind, viewProperty} from 'mvp-di';
 
 class Home extends React.Component implements HomeView {
 
@@ -47,7 +47,7 @@ class Home extends React.Component implements HomeView {
 HomePresenter.ts:
 
 ```
-import {bind, Presenter} from "dependency-injector";
+import {bind, Presenter} from 'mvp-di';
 
 export class HomePresenter extends Presenter<HomeView>{
 
