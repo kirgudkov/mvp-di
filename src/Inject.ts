@@ -25,7 +25,7 @@ function viewPropsOnly(object: any, propertyKey: string): Object {
     }
     if (object[property].__proto__.name === Injectable.name) {
       Object.defineProperty(view, property, {
-        value: () => object[property]()
+        value: object[property]
       });
     }
   });
