@@ -5,7 +5,7 @@
   "files": [
     "src"
   ],
-  "main": "",
+  "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "test": "test-run",
