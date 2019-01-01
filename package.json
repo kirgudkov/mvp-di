@@ -1,7 +1,7 @@
 {
-  "name": "presenter-injection",
+  "name": "mvp-di",
   "version": "0.0.1",
-  "description": "simple DI",
+  "description": "A simple DI package inspired by the MVP pattern. It can inject the presentation layer in React.js/React Native applications.",
   "files": [
     "src"
   ],
@@ -13,17 +13,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KirillGudkov/presenter-injection.git"
+    "url": "git+https://github.com/KirillGudkov/mvp-di.git"
   },
   "keywords": [
-    "DI"
+    "DI",
+    "MVP",
+    "Presenter",
+    "Decorator",
+    "Dependency injection"
   ],
   "author": "Kirill Gudkov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/KirillGudkov/presenter-injection/issues"
+    "url": "https://github.com/KirillGudkov/mvp-di/issues"
   },
-  "homepage": "https://github.com/KirillGudkov/presenter-injection#readme",
+  "homepage": "https://github.com/KirillGudkov/mvp-di#readme",
   "devDependencies": {
     "typescript": "^3.2.2"
   },

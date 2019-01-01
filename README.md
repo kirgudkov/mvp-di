@@ -1,7 +1,8 @@
+A simple DI package inspired by the MVP pattern.
+It can inject the presentation layer in React.js/React Native applications.
 
 ## Installation
-add `"presenter-injection": "github:KirillGudkov/presenter-injection#master"`
-your to package.json and run `npm install`
+Run `yarn add mvp-di`
 ## Usage
 
 - create file DITypes.js
@@ -83,3 +84,4 @@ public dispatch(action: Function): void {
   this.props.dispatch(action);
 }
 ```
+<a href="https://github.com/KirillGudkov/DI-example">Example</a>
