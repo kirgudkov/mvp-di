@@ -18,7 +18,7 @@ export default {
 
 - use `@inject` decorator to inject dependency. Something like:
 ```
-import {inject, bind, injectedProperty} from 'dependency-injector';
+import {inject, bind, injectableProperty} from 'dependency-injector';
 
 class Home extends React.Component implements HomeView {
 
@@ -26,7 +26,7 @@ class Home extends React.Component implements HomeView {
   presenter!: HomePresenter;
 
   @bind
-  @injectedProperty
+  @injectableProperty
   showMessage(): void {
     Alert.alert('Message', 'Hello');
   }
@@ -66,7 +66,7 @@ export interface HomeView {
 
 `@inject` decorator instantiate `HomePresente.ts` 
 object and append it to `Home.tsx` object automatically.
-`@injectedProperty` decorator marks property as `Injectable` 
+`@injectableProperty` decorator marks property as `Injectable` 
 and provides access it for `HomePresenter.ts`
 
 ## Important
