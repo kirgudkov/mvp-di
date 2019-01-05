@@ -23,10 +23,14 @@ function viewPropsOnly(object: any, propertyKey: string): Object {
     if (property === propertyKey) {
       return;
     }
-    if (object[property].__proto__.name === Injectable.name) {
-      Object.defineProperty(view, property, {
-        value: object[property]
-      });
+    if (object[property]) {
+      if (object[property].__proto__) {
+        if (object[property].__proto__.name === Injectable.name) {
+          Object.defineProperty(view, property, {
+            value: object[property]
+          });
+        }
+      }
     }
   });
   return view;
