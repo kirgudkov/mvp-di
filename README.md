@@ -41,7 +41,7 @@ import {bind, Presenter} from 'mvp-di';
 class HomePresenter extends Presenter<HomeView>{
 
   @bind
-  handleOnPress() {
+  public handleOnPress() {
     this.view.showMessage();
   }
 }
@@ -55,15 +55,15 @@ import {inject, bind, viewProperty} from 'mvp-di';
 class Home extends React.Component<{}, {}> implements HomeView {
 
   @inject 
-  presenter!: HomePresenter;
+  private presenter!: HomePresenter;
   
-  getClassName(): string {
+  public getClassName(): string {
     return ComponentEnum.HOME;
   }
 
   @bind
   @viewProperty
-  showMessage(): void {
+  public showMessage(): void {
     Alert.alert('Message', 'Hello');
   }
 
