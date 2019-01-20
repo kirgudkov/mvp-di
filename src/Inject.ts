@@ -1,11 +1,13 @@
 import {PresenterFactory} from "./PresenterFactory";
 import {Injectable} from "./Injectable";
+import {Presenter} from "./Presenter";
+import {MvpView} from "./MvpView";
 
-export function inject<T extends Object>(target: Object, propertyKey: string): any {
+export function inject<T extends MvpView>(target: T, propertyKey: string): any {
   return {
     configurable: true,
-    get(this: T): T {
-      const bound: T = new PresenterFactory().create(target.constructor.name, viewPropsOnly(this, propertyKey));
+    get(this: T): Presenter<T> {
+      const bound: Presenter<T> = new PresenterFactory().create(target.getClassName(), viewPropsOnly(this, propertyKey));
       Object.defineProperty(this, propertyKey, {
         value: bound
       });

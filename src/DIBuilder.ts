@@ -1,8 +1,8 @@
+import {PresenterMap} from "./PresenterMap";
+
 export class DIBuilder {
-
-  static types: Object;
-
-  static build(types: Object) {
-    DIBuilder.types = types;
+  static types: PresenterMap<any>;
+  static build(types: PresenterMap<any>) {
+    this.types = types;
   }
 }

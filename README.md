@@ -5,26 +5,61 @@ It can inject the presentation layer in React.js/React Native applications.
 Run `yarn add mvp-di`
 ## Usage
 
-- create file DITypes.js
-```
-import { HomePresenter } from "./HomePresenter";
+- ##### create file DITypes.js
 
-export default {
-  'Home': HomePresenter
+```typescript
+import {PresenterMap} from "mvp-di";
+
+export enum ComponentEnum {
+  HOME = 'Home',
+  SETTINGS = 'Settings'
 }
 
+export default new PresenterMap<ComponentEnum>()
+  .set(ComponentEnum.HOME, HomePresenter)
+  .set(ComponentEnum.SETTINGS, SettingsPresenter);
+
 ```
 
-- call `DIBuilder.build(DITypes)` in your root component
+- ##### call `DIBuilder.build(DITypes)` in your root component
 
-- use `@inject` decorator to inject dependency. Something like:
+- ##### implement view interface:
+
+```typescript
+import {MvpView} from "mvp-di";
+
+interface HomeView extends MvpView {
+  showMessage: Function
+}
 ```
+
+- ##### implement presenter:
+
+```typescript
+import {bind, Presenter} from 'mvp-di';
+
+class HomePresenter extends Presenter<HomeView>{
+
+  @bind
+  handleOnPress() {
+    this.view.showMessage();
+  }
+}
+```
+
+- ##### implement component and use `@inject` decorator to inject dependency:
+
+```typescript
 import {inject, bind, viewProperty} from 'mvp-di';
 
-class Home extends React.Component implements HomeView {
+class Home extends React.Component<{}, {}> implements HomeView {
 
   @inject 
   presenter!: HomePresenter;
+  
+  getClassName(): string {
+    return ComponentEnum.HOME;
+  }
 
   @bind
   @viewProperty
@@ -43,45 +78,20 @@ class Home extends React.Component implements HomeView {
 
 ```
 
-
-HomePresenter.ts:
-
-```
-import {bind, Presenter} from 'mvp-di';
-
-export class HomePresenter extends Presenter<HomeView>{
-
-  @bind
-  handleOnPress() {
-    this.view.showMessage();
-  }
-}
-```
-
-HomeView.ts:
-```
-export interface HomeView {
-  showMessage: Function
-}
-```
-
-`@inject` decorator instantiate `HomePresente.ts` 
+`@inject` decorator instantiate `HomePresenter.ts` 
 object and append it to `Home.tsx` object automatically.
+
 `@viewProperty` decorator marks property as `Injectable` 
 and provides access it for `HomePresenter.ts`
+
+`@bind` decorator is also available
 
 ## Important
 The `Presenter <T>` extension provides the ability to communicate with View methods. 
 And this is a must. `Presenter <T>` provides a `view` property that gives 
 access to the View methods.
 
-If you need to pass some properties, such as `dispatch ()` for example, try to wrap it:
+All of your view interfaces must extends the `MvpView`. 
+It will oblige your views to implement `getClassName` method.
 
-```
-@bind
-@viewProperty
-public dispatch(action: Function): void {
-  this.props.dispatch(action);
-}
-```
-<a href="https://github.com/KirillGudkov/DI-example">Example</a>
+`getClassName` have to return string that exactly like in DITypes enum
