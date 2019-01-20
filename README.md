@@ -5,7 +5,7 @@ It can inject the presentation layer in React.js/React Native applications.
 Run `yarn add mvp-di`
 ## Usage
 
-- ##### implement PresenterMap
+- implement PresenterMap
 
 ```typescript
 import {PresenterMap} from "mvp-di";
@@ -21,9 +21,9 @@ export default new PresenterMap<ComponentEnum>()
 
 ```
 
-- ##### call `DIBuilder.build(PresenterMap)` in your root component
+- call `DIBuilder.build(PresenterMap)` in your root component
 
-- ##### implement view interface:
+- implement view interface:
 
 ```typescript
 import {MvpView} from "mvp-di";
@@ -33,7 +33,7 @@ interface HomeView extends MvpView {
 }
 ```
 
-- ##### implement presenter:
+- implement presenter:
 
 ```typescript
 import {bind, Presenter} from 'mvp-di';
@@ -47,7 +47,7 @@ class HomePresenter extends Presenter<HomeView>{
 }
 ```
 
-- ##### implement component and use `@inject` decorator to inject dependency:
+- implement component and use `@inject` decorator to inject dependency:
 
 ```typescript
 import {inject, bind, viewProperty} from 'mvp-di';
