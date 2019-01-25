@@ -2,8 +2,10 @@ import {PresenterFactory} from "./PresenterFactory";
 import {Injectable} from "./Injectable";
 import {Presenter} from "./Presenter";
 import {MvpView} from "./MvpView";
+import 'reflect-metadata';
 
 export function inject<T extends MvpView>(target: T, propertyKey: string): any {
+  // console.log(Reflect.getMetadata("design:type", target, propertyKey));
   return {
     configurable: true,
     get(this: T): Presenter<T> {
@@ -15,7 +17,6 @@ export function inject<T extends MvpView>(target: T, propertyKey: string): any {
     }
   };
 }
-
 
 function viewPropsOnly(object: any, propertyKey: string): Object {
   const view: Object = {};

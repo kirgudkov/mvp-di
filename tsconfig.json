@@ -2,6 +2,7 @@
   "compilerOptions": {
     "declaration": true,
     "outDir": "./lib",
+    "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "lib": ["es6"],
