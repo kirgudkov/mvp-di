@@ -1,5 +1,6 @@
 A simple DI package inspired by the MVP pattern.
 It can inject the presentation layer in React.js/React Native applications.
+Works only with Typescript so far
 
 ## Installation
 Run `yarn add mvp-di`
