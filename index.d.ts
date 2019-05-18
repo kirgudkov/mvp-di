@@ -3,7 +3,14 @@ export function viewProperty(target: any, propertyKey: string, descriptor: Typed
 export function inject<T extends Object>(target: Object, propertyKey: string): any;
 
 export class Presenter<T> {
-  view: T;
+  view: T
+  lateInit: (...params: Param[]) => void
+  onViewAttached: () => void
+  onViewDetached: () => void
+}
+
+export interface Param {
+  [key: string]: any
 }
 
 export interface MvpView {
